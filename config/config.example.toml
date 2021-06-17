@@ -1,0 +1,54 @@
+# HTTP Server配置
+[server]
+	Address        = ":8199"
+	ServerRoot     = "public"
+	ServerAgent    = "gf-demos"
+	LogPath        = "/tmp/log/gf-demos/server"
+	NameToUriType  = 2
+	RouteOverWrite = true
+
+# 全局日志配置
+[logger]
+    Path   = "/tmp/log/gf-demos"
+    Level  = "all"
+    Stdout = true
+
+# 模板引擎配置
+# [viewer]
+#     Path        = "template"
+#     DefaultFile = "index.html"
+#     Delimiters  =  ["${", "}"]
+
+# Redis
+[redis]
+    default = "127.0.0.1:6379,0"
+    cache   = "127.0.0.1:6379,1?idleTimeout=600"
+
+# 数据库连接
+[database]
+    link  = "mysql:root:123456@tcp(127.0.0.1:3306)/test"
+    debug = true
+    # 数据库日志对象配置
+    [database.logger]
+        Path   = "/tmp/log/gf-demos/sql"
+        Level  = "all"
+        Stdout = true
+# 相关数据API配置
+[dota]
+    key = ""
+    secret   = ""
+
+# swagger api页面查看账号密码
+[swagger]
+    user        = "123"
+    pass        = "123"
+    schemes     = ["http"]
+    version     = "1.0"
+    title       = "示例服务API"
+    description = """
+`GoFrame`基础开发框架示例服务API接口文档。
+    """
+
+# 全局参数配置
+[params]
+    imgDomain = "http://doat2.images.com/"   
